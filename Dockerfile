@@ -9,20 +9,14 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     vim-nox \
     git \
     ctags \
-    libc6-dev \
-    make \
     procps \
     indent \
     man-db \
     tree \
     openssh-client \
     htop \
-    clang \
-    libclang-dev \
     manpages-dev \
     build-essential \
-    mercurial \
-    valgrind \
     tmux
 
 COPY . /root/.dotfiles

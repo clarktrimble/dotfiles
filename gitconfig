@@ -1,6 +1,6 @@
 [user]
-	name = Michael Crosby
-	email = crosbymichael@gmail.com
+	name = Clark Trimble
+	email = pctrimble@gmail.com
 [alias]
 	st = status
 	co = checkout
@@ -12,8 +12,8 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/michael/.gitignore_global
+	excludesfile = /Users/trimble/.gitignore_global
 	editor = vim
     mergetool = vimdiff
 [github]
-	user = crosbymichael
+	user = clarktrimble

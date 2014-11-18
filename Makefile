@@ -1,5 +1,5 @@
 all:
-	docker build -t crosbymichael/dotfiles .
+	docker build -t clarktrimble/dotfiles .
 
 host:
 	apt-get update && apt-get upgrade -y && apt-get install -y \
@@ -9,9 +9,9 @@ host:
 		cgroup-lite \
 		aufs-tools
 
-	curl -o /usr/local/bin/docker http://crosbymichael.com.s3.amazonaws.com/docker
+	curl -o /usr/local/bin/docker http://clarktrimble.com.s3.amazonaws.com/docker
 	chmod +x /usr/local/bin/docker
-	curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
+	curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/clarktrimble/.dotfiles/master/docker.conf
 	supervisorctl reload
 
 golang:
@@ -46,4 +46,4 @@ run:
 		-v /usr/local/bin/docker:/usr/local/bin/docker \
 		-v /root/development:/root/development \
 		-v /root/.ssh:/root/.ssh \
-		crosbymichael/dotfiles
+		clarktrimble/dotfiles
