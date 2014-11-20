@@ -1,5 +1,3 @@
-e Vim settings, rather then Vi settings. This setting must be as early as
-" possible, as it has side effects.
 set nocompatible
 
 " Leader
@@ -68,7 +66,7 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+"set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
