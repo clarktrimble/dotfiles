@@ -12,7 +12,7 @@ set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitigno
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
+""set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
@@ -61,7 +61,7 @@ augroup END
 set tabstop=2
 set shiftwidth=2
 set shiftround
-set expandtab
+""set expandtab
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·,nbsp:·
@@ -85,7 +85,7 @@ highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Make it obvious where 80 characters is
 set textwidth=80
-set colorcolumn=+1
+""set colorcolumn=+1
 
 " Numbers
 set number
@@ -152,6 +152,8 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+let g:go_fmt_command = "goimports"
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
