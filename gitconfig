@@ -1,5 +1,6 @@
 [user]
 	name = Clark Trimble
+	email = c.trimble@f5.com
 [alias]
   co = checkout
   ci = commit

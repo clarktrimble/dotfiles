@@ -14,48 +14,20 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 ""set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
+""set autowrite     " Automatically :write before running commands
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
+set hlsearch!
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
 filetype plugin indent on
-
-augroup vimrcEx
-  autocmd!
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-
-  " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
-
-  " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
-  " Automatically wrap at 72 characters and spell check git commit messages
-  autocmd FileType gitcommit setlocal textwidth=72
-  autocmd FileType gitcommit setlocal spell
-
-  " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=-
-augroup END
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -67,14 +39,16 @@ set shiftround
 " set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
+if executable('ptt')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=pt\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use pt in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'pt -l --nocolor -g "" %s'
+  ""let g:ctrlp_user_command = 'pt %s -l --nocolor -g ""'
+  ""let g:ctrlp_user_command = 'pt --nocolor -g "\\*" %s'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " pt is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
@@ -82,10 +56,6 @@ endif
 colorscheme github
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
-" Make it obvious where 80 characters is
-set textwidth=80
-""set colorcolumn=+1
 
 " Numbers
 set number
@@ -121,11 +91,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" vim-rspec mappings
-nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
-
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
@@ -155,7 +120,9 @@ set diffopt+=vertical
 
 let g:go_fmt_command = "goimports"
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+
