@@ -12,9 +12,13 @@ set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitigno
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
-""set incsearch     " do incremental searching
+set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 ""set autowrite     " Automatically :write before running commands
+
+set hidden
+set scrolloff=8
+inoremap kj <ESC>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -118,11 +122,16 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 " Always use vertical diffs
 set diffopt+=vertical
 
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 
 

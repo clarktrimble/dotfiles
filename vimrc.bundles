@@ -32,6 +32,8 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype on
